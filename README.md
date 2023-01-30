@@ -46,10 +46,8 @@ Develop a classification model to predict whether or not a particular collision 
     - Ran-off left shoulder 
     
 ## Comparison of all Classifiers
-<img width="455" alt="roc_train" src=“https://user-images.githubusercontent.com/58715002/215579563-e757b302-63c7-48dd-8fbb-a7f8aaeeef2a.png">
+<img width="758" alt="roc_train_test" src="https://user-images.githubusercontent.com/58715002/215581601-c445d809-96ff-495c-8a83-8e2b33300c27.png">
                                                                                                                                             
-
-
 <img width="276" alt="roc_scores" src="https://user-images.githubusercontent.com/58715002/215579809-80fd7383-8f1a-473f-aa85-d7b897a3fdfb.png">
 
 Model of Choice is GradientBoost Classifier.
