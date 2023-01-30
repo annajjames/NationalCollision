@@ -1,5 +1,5 @@
 ## Introduction
-Police-reporting of motor vehicle collisions on public roads in Canada tracks a number of variables relating to the collisions like:
+This dataset is the national collision data from 2019 for Canada. It contains police-reporting of motor vehicle collisions on public roads and tracks a number of variables relating to the collisions like:
     - month, day, time
     - number of vehicles involved
     - type of collision, eg. rear-end, head-on, etc.
@@ -11,13 +11,54 @@ Police-reporting of motor vehicle collisions on public roads in Canada tracks a 
     - age and sex of the driver
     and a list of other features.
 
-In our study we examined national collision data from 2019 and analyzed the variables affecting a collision leading to injury or fatality or no injury.
-
 ## Objective
-To develop a classification model to predict whether or not a particular collision will lead to an injury or fatality or no injury.
+Develop a classification model to predict whether or not a particular collision will lead to an injury/fatality or no injury.
 
-This model could be used by authorities to predict collision output based on the given variables and help plan road infrastructure or put up appropriate billboards like 'accident prone zone'/'slow'down' for collision prone areas, times, etc.
+## Benefits and Uses of the Model
+    - Gain a better understanding of the variables that lead to injury/fatality of a collision.
+    - Use for planning of road infracture to reduce collision.
+    - Put up appropriate billboards like 'accident prone zone/slow down' in collision-prone areas.
 
-## Exploratory Data Analysis, Feature Selection, Pre-processing
+## Exploratory Data Analysis and Pre-processing
+    - Target classes injury and fatality were combined to create a single class converting the problem to a binary classification: 0 - Injury/Fatality and 1 - No Injury.
+    - Missing values for categorical variables were imputed with the respective modes.
+    - Value to identify pedestrians involved in collisions were synchronized across 3 categorical columns.
+    - Missing values for 'Age' variable was imputed with the mode age in each user category. Users are: driver, passenger, pedestrian,      bicyclist, motorcyclist.
+    - Age variable was binned to convert it to a categorical variable.
+    - Time based features month, day, and time were transformed to cyclical features.
+    - StandardScaler was applied to numerical features and OneHotEncoding for categorical features.
+    
+## Feature Selection
+    - Chi-Square test for feature selection of  categorical features
+    - Mutual info classif to measure the dependecy between numeric variables with the target variable.
 
-## Model Building
+## Key Insights
+The major features associated with a collision leading to  injury/fatality or not are, whether:
+- Helmet worn (for motorcyclists, bicyclists, snowmobilers, all-terrain vehicle riders)
+- No safety device used, or child restraint used
+- Pedestrians
+- Motorcyclist
+- Bicyclist
+- Single vehicle in motion ran off right shoulder
+- Female
+- Male
+- Rear-end collision
+- Ran-off left shoulder 
+
+FI for GradientBoost
+- No of vehicles involved in the collision
+- Safety device used or child restraint used
+- Females
+- Males
+- Motor vehicle passenger
+- Age category 1
+- No control present
+- School bus
+- Motor vehicle driver
+- Non-intersection
+    
+## Comparison of all Classifiers
+![Alt text](roc_train.png)                               ![Alt text](roc_test.png)
+                                ![Alt text](roc_scores.png)
+
+Model of Choice is GradientBoost Classifier.
