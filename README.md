@@ -34,7 +34,7 @@ Develop a classification model to predict whether or not a particular collision 
 
 ## Key Insights
     The major features associated with a collision leading to  injury/fatality or not are, whether:
-        - Helmet worn (for motorcyclists, bicyclists, snowmobilers, all-terrain vehicle riders)
+    - Helmet worn (for motorcyclists, bicyclists, snowmobilers, all-terrain vehicle riders)
     - No safety device used, or child restraint used
     - Pedestrians
     - Motorcyclist
