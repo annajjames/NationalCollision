@@ -33,32 +33,19 @@ Develop a classification model to predict whether or not a particular collision 
     - Mutual info classif to measure the dependecy between numeric variables with the target variable.
 
 ## Key Insights
-The major features associated with a collision leading to  injury/fatality or not are, whether:
-- Helmet worn (for motorcyclists, bicyclists, snowmobilers, all-terrain vehicle riders)
-- No safety device used, or child restraint used
-- Pedestrians
-- Motorcyclist
-- Bicyclist
-- Single vehicle in motion ran off right shoulder
-- Female
-- Male
-- Rear-end collision
-- Ran-off left shoulder 
-
-FI for GradientBoost
-- No of vehicles involved in the collision
-- Safety device used or child restraint used
-- Females
-- Males
-- Motor vehicle passenger
-- Age category 1
-- No control present
-- School bus
-- Motor vehicle driver
-- Non-intersection
+    The major features associated with a collision leading to  injury/fatality or not are, whether:
+        - Helmet worn (for motorcyclists, bicyclists, snowmobilers, all-terrain vehicle riders)
+    - No safety device used, or child restraint used
+    - Pedestrians
+    - Motorcyclist
+    - Bicyclist
+    - Single vehicle in motion ran off right shoulder
+    - Female
+    - Male
+    - Rear-end collision
+    - Ran-off left shoulder 
     
 ## Comparison of all Classifiers
-![Alt text](roc_train.png)                               ![Alt text](roc_test.png)
-                                ![Alt text](roc_scores.png)
+
 
 Model of Choice is GradientBoost Classifier.
