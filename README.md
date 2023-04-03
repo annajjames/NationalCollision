@@ -14,39 +14,34 @@ This dataset is the national collision data from 2019 for Canada. It contains po
 ## Objective
 Develop a classification model to predict whether or not a particular collision will lead to an injury/fatality or no injury.
 
-## Benefits and Uses of the Model
-    - Gain a better understanding of the variables that lead to injury/fatality of a collision.
+## Benefits and Use of the Model
     - Use for planning of road infracture to reduce collision.
+    - Gain a better understanding of the variables that lead to injury/fatality in a collision.
+    - Optimize exisiting services. Example medical availablity near collision-prone areas.   
     - Put up appropriate billboards like 'accident prone zone/slow down' in collision-prone areas.
 
-## Exploratory Data Analysis and Pre-processing
-    - Target classes injury and fatality were combined to create a single class converting the problem to a binary classification: 0 - Injury/Fatality and 1 - No Injury.
-    - Missing values for categorical variables were imputed with the respective modes.
-    - Value to identify pedestrians involved in collisions were synchronized across 3 categorical columns.
-    - Missing values for 'Age' variable was imputed with the mode age in each user category. Users are: driver, passenger, pedestrian,      bicyclist, motorcyclist.
-    - Age variable was binned to convert it to a categorical variable.
-    - Time based features month, day, and time were transformed to cyclical features.
-    - StandardScaler was applied to numerical features and OneHotEncoding for categorical features.
+## Exploratory Data Analysis and Feature Engineering
+    - Converted the problem to binary classification by combining target classes injury and fatality to create a single class  0 - Injury/Fatality and 1 - No Injury.
+    - Imputed missing values for categorical variables with their respective modes.
+    - Analyzed and imputed missing values for 'Age' variable with the mode age in each user category. User categories are: driver, passenger, pedestrian, bicyclist, motorcyclist.
+    - **Discretized** 'Age' variable.
+    - Synchronized the value to identify pedestrians involved in collisions across 3 categorical variables.
+    - Transformed time based features month, day, and time to **cyclical features**.
+    - Applied **StandardScaler** to numerical features and **OneHotEncoding** for categorical features.
     
 ## Feature Selection
-    - Chi-Square test for feature selection of  categorical features
-    - Mutual info classif to measure the dependecy between numeric variables with the target variable.
+    - Chi-Square feature selection for categorical features.
+    - Mutual info classif to measure the dependecy between numeric variables and the target variable.
 
 ## Key Insights
-    The major features associated with a collision leading to  injury/fatality or not are, whether:
-    - Helmet worn (for motorcyclists, bicyclists, snowmobilers, all-terrain vehicle riders)
-    - No safety device used, or child restraint used
-    - Pedestrians
-    - Motorcyclist
-    - Bicyclist
-    - Single vehicle in motion ran off right shoulder
-    - Female
-    - Male
-    - Rear-end collision
-    - Ran-off left shoulder 
-    
+Gradient Boost model has the best scores for train and test data. For Gradient Boost the following features seem to be the most important for predicting whether a collision will lead to injury/fatality or not in a collision: 
+    - Number of vehicles involved in the collision
+    - Whether safety device is used or child restraint is used
+    - Whether the person involved in collision is a female
+    - Whether the person involved in collision is a male
+    - Whether the person is a passenger
+    - Whether the age of the person involved in collision is between 0 to 15.
+  
 ## Comparison of Classifiers
 <img width="850" alt="roc_train_test" src="https://user-images.githubusercontent.com/58715002/215581601-c445d809-96ff-495c-8a83-8e2b33300c27.png">
 <img width="276" alt="roc_scores" src="https://user-images.githubusercontent.com/58715002/215579809-80fd7383-8f1a-473f-aa85-d7b897a3fdfb.png">
-
-Model of Choice is GradientBoost Classifier.
